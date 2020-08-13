@@ -28,8 +28,13 @@ export class ToDoComponent implements OnInit {
   }
 
   onAdd(itemTitle) {
-    this.toDoService.addTitle(itemTitle.value);
-    itemTitle.value = null;
+    if(itemTitle.value.length >0){
+      this.toDoService.addTitle(itemTitle.value);
+      itemTitle.value = null;
+    }
+    else{
+      alert("Enter To do List Title")
+    }
   }
 
   alterCheck($key: string,isChecked) {
